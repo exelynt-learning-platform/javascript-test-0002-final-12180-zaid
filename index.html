@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>js test 02</title>
+  </head>
+  <body>
+    <script>
+      function combination(n, r) {
+        if (r === 0 || r === n) return 1;
+        let result = 1;
+        for (let i = 0; i < r; i++) {
+          result = (result * (n - i)) / (i + 1);
+        }
+        return result;
+      }
+
+      function printPattern() {
+        let n = 4;
+        for (let i = n; i >= 0; i--) {
+          let line = "";
+
+          for (let s = 0; s < n - i; s++) {
+            line += " ";
+          }
+
+          for (let j = 0; j <= i; j++) {
+            line += combination(i, j);
+            if (j < i) line += " ";
+          }
+
+          console.log(line);
+        }
+      }
+
+      printPattern();
+    </script>
+  </body>
+</html>
